@@ -1,0 +1,24 @@
+<div class="container">
+  <span class="h3">About Us</span>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>title</th>
+        <th>content</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @data.each_with_index do |item, idx| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.ko_title %></td>
+        <td><%= item.ko_content %></td>
+        <td><a href="<%= edit_admin_about_path(item) %>" class="btn btn-default">Edit</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

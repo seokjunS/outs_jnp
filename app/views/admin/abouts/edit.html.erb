@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>#<%= @data.id %> <%= @data.ko_title %></h3>
+  <%= form_for( [:admin, @data] ) do |f| %>
+    <div class="form-group">
+      <label>Korean</label>
+      <%= f.text_field :ko_title, class: "form-control" %>
+      <%= f.text_area :ko_content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>English</label>
+      <%= f.text_field :en_title, class: "form-control" %>
+      <%= f.text_area :en_content, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Chinese</label>
+      <%= f.text_field :cn_title, class: "form-control" %>
+      <%= f.text_area :cn_content, class: "form-control" %>
+    </div>
+    
+    <%= f.submit "Edit", class: "btn btn-primary" %>
+    <%= link_to "Back to list", admin_abouts_path, class: "btn btn-warning" %>
+  <% end %>
+
+</div>

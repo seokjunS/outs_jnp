@@ -1,0 +1,372 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$primary-highlight: #895b35;
+$subprimary-highlight: #9c6e45;
+
+
+html {
+  overflow: auto;
+}
+
+.btn-trans {
+  border: solid 2px $subprimary-highlight;
+  border-radius: 0;
+  font-size: 21px;
+  color: #1a1311;
+  background-color: transparent;
+  padding: 9px 15px;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+
+  &:hover {
+    background-color: $primary-highlight;
+    border-color: transparent;
+    color: #fff;
+  }
+}
+
+hr.trans {
+  border-color: transparent;
+}
+
+.divided-item {
+  &:before,
+  &.last:after {
+    content: none;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .divided-item {
+    &:before,
+    &.last:after {
+      position: absolute;
+      content: "";
+      background-color: #fff;
+      top: 10px;
+      bottom: 10px;
+      padding: 1px;
+      left: 0px;
+    }
+
+    &.last:after {
+      left: initial;
+      right: 0px;
+    }
+  }
+}
+
+.navbar-brand {
+  color: #fff !important;
+  padding-top: 10px;
+}
+
+.navbar-shrink {
+  background-color: #fff !important;
+  color: #050633 !important;
+  box-shadow: 0 2px 4px 0 rgba(87, 71, 81, 0.2);
+
+  .navbar-brand {
+    color: #050633 !important;
+  }
+
+  & .navbar-nav>li>a {
+    color: #050633 !important;    
+  }
+
+  & .navbar-nav>.active>a,
+  & .navbar-nav>li:hover>a {
+    color: $subprimary-highlight !important;
+    background-color: transparent !important;
+  }
+
+  .divided-item:before,
+  .divided-item.last:after {
+    background-color: #050633;
+  }
+
+}
+
+.aboutus-heading {
+  font-size: 84px;
+  font-weight: bold;
+  color: $primary-highlight;
+}
+
+.aboutus-text {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  color: #8d8e8e;
+}
+
+.aboutus-text2 {
+  font-size: 14px;
+  font-weight: 300;
+  color: #8d8e8e;
+}
+
+.aboutus-more-heading {
+  background-color: #050633;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 40px;
+
+  & .left {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    text-align: center;
+    color: $primary-highlight;
+  }
+  & .right {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: -0.1px;
+    color: #8d8e8e;
+  }
+}
+
+.aboutus-item-panel {
+  &>div {
+    width: 20%;
+  }
+  & .divided-item:before,
+  & .divided-item.last:after {
+    background-color: $subprimary-highlight;
+  }
+
+  & .aboutus-item {
+    min-height: 300px;
+
+    .heading {
+      font-size: 16px;
+      font-weight: bold;
+      color: #060327;
+      text-align: center;
+    }
+    .content {
+      font-size: 10px;
+      font-weight: 300;
+      color: #9f9fa0;
+    }
+  }
+}
+
+.aboutus-more2-heading {
+  padding: 63px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #a3a3a3;
+}
+
+#ref-aboutus-more2 {
+  & .content-panel img {
+    height: 420px;
+  }
+  & .item {
+    width: 50%;
+    height: 210px;
+    padding: 15px;
+
+    .icon {
+      text-align: center;
+      width: 50%;
+      height: 100%;
+      padding-top: 40px;
+      i {
+        font-size: 45px;
+        color: $subprimary-highlight;
+      }
+    }
+    .lb {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+    }
+    .text {
+      width: 50%;
+      height: 100%;
+      font-size: 10px;
+      font-weight: 300;
+      color: #9f9fa0;
+    }
+  }
+
+  & .item.first:before,
+  & .item.first:after,
+  & .item.last:before,
+  & .item.last:after, {
+    position: absolute;
+    content: "";
+    background-color: $subprimary-highlight;
+    padding: 1px;
+  }
+  & .item.first:before {
+    left: 100%;
+    top: 0;
+    bottom: 5%;
+  }
+  & .item.first:after {
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+  }
+  & .item.last:before {
+    left: 0;
+    top: 5%;
+    bottom: 0;
+  }
+  & .item.last:after {
+    left: 5%;
+    right: 5%;
+    top: 0;
+  }
+}
+
+.thumbnail {
+  border: none;
+  background-color: transparent;
+
+  & .caption {
+    padding: 0 6px 0 9px;
+    border-left: solid 2.7px $subprimary-highlight;
+
+    h3 {
+      margin: 10px 0 0;
+      font-size: 14px;
+      font-weight: bold;
+      color: #060327;
+    }
+    p {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: -0.2px;
+      color: #8d8e8e;
+    }
+  }
+}
+
+.thumbnail.big {
+  & .caption {
+    padding: 0 9px 0 15px;
+    border-left: solid 2.7px $subprimary-highlight;
+
+    h3 {
+      margin: 20px 0 10px;
+      font-size: 24px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+.thumbnail-news {
+  & .caption {
+    padding: 0 9px 0 15px;
+    border: solid 2.7px $subprimary-highlight;
+    border-top-color: transparent;
+    min-height: 300px;
+
+    h3 {
+      margin: 32px 0 19px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #060327;
+    }
+    p {
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.6;
+      color: #9f9fa0;
+    }
+  }
+}
+
+.recruit {
+  font-size: 30px;
+  font-weight: bold;
+  color: #895b35;
+}
+
+.recruit-text {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: -0.2px;
+  color: #8d8e8e;
+}
+
+.location-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #060327;
+}
+
+.location-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8d8e8e;
+}
+
+footer {
+  padding: 42px 0 !important;
+  text-align: center;
+  background-color: #050633;
+  color: #fefefe;
+  font-weight: 300;
+  font-size: 12px;
+
+  .lb {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .text {
+
+  }
+}
+
+.navbar-header {
+  position: relative;
+}
+
+.navbar-brand:after {
+  content: "제이앤파트너스 법률사무소";
+  position: absolute;
+  bottom: -7px;
+  left: 35px;
+  font-size: 10px;
+}
+
+.navbar-shrink .navbar-brand:after {
+  bottom: 0px;
+}
+
+.navbar-default .navbar-toggle {
+  background-color: $primary-highlight !important;
+  border-color: $primary-highlight !important;
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+  background-color: transparent;
+  color: $primary-highlight !important;
+}
+.dropdown-menu>li>a {
+  color: #050633 !important;
+}
+
+.portfolio-item {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,21 @@
+<div class="container">
+  <h3><%= @data.cid %></h3>
+  <%= form_for( [:admin, @data] ) do |f| %>
+    <div class="form-group">
+      <label>Korean</label>
+      <%= f.text_area :ko, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>English</label>
+      <%= f.text_area :en, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Chinese</label>
+      <%= f.text_area :cn, class: "form-control" %>
+    </div>
+    
+    <%= f.submit "Edit", class: "btn btn-primary" %>
+    <%= link_to "Back to list", admin_texts_path, class: "btn btn-warning" %>
+  <% end %>
+
+</div>
