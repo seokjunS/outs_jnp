@@ -6,6 +6,10 @@ class Person < ActiveRecord::Base
     self[locale+"_name"]
   end
 
+  def get_position(locale)
+    self[locale+"_position"]
+  end
+
   def get_description(locale)
     self[locale+"_description"]
   end

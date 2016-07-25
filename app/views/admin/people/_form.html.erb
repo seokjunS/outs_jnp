@@ -5,22 +5,41 @@
     <div class="form-group">
       <%= image_tag @data.avatar.url %>
       <%= f.file_field :avatar %>
+      <label>Priority</label>
+      <%= f.number_field :priority, class: "form-control" %>
+      <div class="helper-block">
+        해당 Korean position에 해당하는 priority들이 전부 수정됩니다.
+      </div>
       <label>Korean name</label>
       <%= f.text_area :ko_name, class: "form-control" %>
+      <label>Korean position</label>
+      <%= f.text_area :ko_position, class: "form-control" %>
       <label>Korean description</label>
       <%= f.text_area :ko_description, class: "form-control" %>
     </div>
     <div class="form-group">
       <label>English name</label>
       <%= f.text_area :en_name, class: "form-control" %>
+      <label>English position</label>
+      <%= f.text_area :en_position, class: "form-control" %>
       <label>English description</label>
       <%= f.text_area :en_description, class: "form-control" %>
     </div>
     <div class="form-group">
       <label>Chinese name</label>
       <%= f.text_area :cn_name, class: "form-control" %>
+      <label>Chinese position</label>
+      <%= f.text_area :cn_position, class: "form-control" %>
       <label>Chinese description</label>
       <%= f.text_area :cn_description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>Japanese name</label>
+      <%= f.text_area :ja_name, class: "form-control" %>
+      <label>Japanese position</label>
+      <%= f.text_area :ja_position, class: "form-control" %>
+      <label>Japanese description</label>
+      <%= f.text_area :ja_description, class: "form-control" %>
     </div>
     
     <%= f.submit "Done", class: "btn btn-primary" %>

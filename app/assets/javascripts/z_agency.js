@@ -29,6 +29,13 @@ function initHeader() {
 
 }
 
+// collapse function
+var g_Opened = null;
+
+// news
+var g_currNews = null;
+
+
 $(function() {
   initHeader();
 
@@ -40,13 +47,59 @@ $(function() {
     event.preventDefault();
   });
 
-  // hover
-  // $(".portfolio-hover").each(function() {
-  //   var $img = $(this).parent().find("img");
+  $('a.portfolio-link').click(function(event) {
+    var $this = $(this);
+    if ( $this.attr('data-opened') == "false") {
+      // open this
 
-  //   $(this).css( 'width', $img.width() );
-  //   $(this).css( 'height', $img.height() );
-  // });
+      if (g_Opened != null && g_Opened != $this) {
+        // close old
+        g_Opened.attr('data-opened', "false");
+        g_Opened.removeClass("expanded");
+        $(g_Opened.attr("href")).collapse('hide');
+      }
+
+      $this.attr('data-opened', "true");
+      $this.addClass("expanded");
+      g_Opened = $this;
+    }
+    else {
+      // close this
+      $this.attr('data-opened', "false");
+      $this.removeClass("expanded");
+      g_Opened = null;
+    }
+    
+  });
+
+  $('.thumbnail-news').click(function(event) {
+    var $this = $(this);
+    var $parent = $this.parent();
+    var targetClass = "col-xs-6";
+
+    if ( !!g_currNews && g_currNews.attr('data-id') == $this.attr('data-id')) {
+      // close
+      $parent.removeClass(targetClass);
+      $parent.addClass("col-xs-3");
+      $this.removeClass("expanded");
+      g_currNews = null;
+    }
+    else {
+      // close other
+      if (!!g_currNews) {
+        g_currNews.parent().removeClass(targetClass);
+        g_currNews.parent().addClass("col-xs-3");
+        g_currNews.removeClass("expanded");
+      }
+      // open
+      $parent.addClass(targetClass);
+      $parent.removeClass("col-xs-3");
+      $this.addClass("expanded");
+      g_currNews = $this;
+    }
+
+
+  });
 
 
   // Highlight the top nav as scrolling occurs
@@ -54,10 +107,6 @@ $(function() {
     target: '.navbar-fixed-top'
   });
 
-  // Closes the Responsive Menu on Menu Item Click
-  // $('.navbar-collapse ul li a').click(function() {
-  //   $('.navbar-toggle:visible').click();
-  // });
 });
 
 $(window).load(function() {

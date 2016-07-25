@@ -19,7 +19,7 @@ class Admin::AboutsController < AdminController
 
   private
   def article_params
-    params.require(:about).permit(:ko_title, :ko_content, :cn_title, :cn_content, :en_title, :en_content)
+    params.require(:about).permit(:ko_title, :ko_content, :cn_title, :cn_content, :en_title, :en_content, :ja_title, :ja_content)
   end
 end
 

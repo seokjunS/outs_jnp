@@ -39,6 +39,6 @@ class Admin::NoticesController < AdminController
 
   private
   def notice_params
-    params.require(:notice).permit(:avatar, :ko_title, :ko_content, :en_title, :en_content, :cn_title, :cn_content)
+    params.require(:notice).permit(:avatar, :ko_title, :ko_content, :en_title, :en_content, :cn_title, :cn_content, :ja_title, :ja_content)
   end
 end

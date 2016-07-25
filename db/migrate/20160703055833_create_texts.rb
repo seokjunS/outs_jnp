@@ -5,6 +5,7 @@ class CreateTexts < ActiveRecord::Migration
       t.text          :ko
       t.text          :en
       t.text          :cn
+      t.text          :ja
 
       t.timestamps null: false
     end

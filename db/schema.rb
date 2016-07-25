@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160703060031) do
     t.text     "en_content"
     t.string   "cn_title"
     t.text     "cn_content"
+    t.string   "ja_title"
+    t.text     "ja_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160703060031) do
     t.text     "en_content"
     t.string   "cn_title"
     t.text     "cn_content"
+    t.string   "ja_title"
+    t.text     "ja_content"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"
@@ -40,14 +44,21 @@ ActiveRecord::Schema.define(version: 20160703060031) do
   end
 
   create_table "people", force: :cascade do |t|
+    t.integer  "priority",            default: 999
     t.string   "ko_name"
     t.text     "ko_description"
+    t.text     "ko_position"
     t.string   "en_name"
     t.text     "en_description"
+    t.text     "en_position"
     t.string   "cn_name"
     t.text     "cn_description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.text     "cn_position"
+    t.string   "ja_name"
+    t.text     "ja_description"
+    t.text     "ja_position"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -59,6 +70,7 @@ ActiveRecord::Schema.define(version: 20160703060031) do
     t.text     "ko"
     t.text     "en"
     t.text     "cn"
+    t.text     "ja"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -19,6 +19,6 @@ class Admin::TextsController < AdminController
 
   private
   def allowed_params
-    params.require(:text).permit(:ko, :en, :cn)
+    params.require(:text).permit(:ko, :en, :cn, :ja)
   end
 end

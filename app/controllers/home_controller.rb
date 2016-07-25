@@ -15,8 +15,9 @@ class HomeController < ApplicationController
     @texts = Hash[ Text.all.map { |c| [c.cid, c] } ]
     @abouts1 = About.limit(5)
     @abouts2 = About.limit(5).offset(5)
-    @people = Person.all
     @notices = Notice.all
+    @people = Person.all.group_by{ |p| p.priority }.sort.map{ |v| v[1] }
+
   end
 
   def static

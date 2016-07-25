@@ -135,7 +135,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width:768px) {
   .navbar-default {
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.25);
   padding: 35px 0;
   -webkit-transition: padding .3s;
   -moz-transition: padding .3s;
@@ -159,14 +159,14 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.5em;
 }
 }header {
-  background-image: url(<%= asset_path "header-bg.jpg" %>);
+/*  background-image: url(<%= asset_path "header-bg.jpg" %>);
   background-repeat: none;
   background-attachment: scroll;
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
+  -o-background-size: cover;*/
   text-align: center;
   color: #fff;
 }
@@ -251,7 +251,8 @@ section h3.section-subheading {
   -webkit-transition: all ease .5s;
   -moz-transition: all ease .5s;
 }
-.portfolio-item .portfolio-link .portfolio-hover:hover {
+.portfolio-item .portfolio-link .portfolio-hover:hover,
+.portfolio-item .portfolio-link.expanded .portfolio-hover {
   opacity: 1;
 }
 .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {

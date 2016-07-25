@@ -22,6 +22,12 @@
       <label>Chinese content</label>
       <%= f.text_area :cn_content, class: "form-control" %>
     </div>
+    <div class="form-group">
+      <label>Japanese title</label>
+      <%= f.text_area :ja_title, class: "form-control" %>
+      <label>Japanese content</label>
+      <%= f.text_area :ja_content, class: "form-control" %>
+    </div>
     
     <%= f.submit "Done", class: "btn btn-primary" %>
     <%= link_to "Back to list", admin_notices_path, class: "btn btn-warning" %>

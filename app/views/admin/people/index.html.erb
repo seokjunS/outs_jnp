@@ -9,6 +9,7 @@
         <th>#</th>
         <th>avatar</th>
         <th>name</th>
+        <th>priority</th>
         <th>description</th>
         <th></th>
         <th></th>
@@ -20,6 +21,7 @@
         <td><%= item.id %></td>
         <td><%= image_tag item.avatar.url %></td>
         <td><%= item.ko_name %></td>
+        <td><%= item.priority %></td>
         <td><%= item.ko_description %></td>
         <td><a href="<%= edit_admin_person_path(item) %>" class="btn btn-default">Edit</a></td>
         <td><%= link_to 'Delete', admin_person_path(item), method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure to delete?' } %></td>

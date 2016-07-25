@@ -10,6 +10,9 @@ class CreateNotices < ActiveRecord::Migration
       t.string        :cn_title
       t.text          :cn_content
 
+      t.string        :ja_title
+      t.text          :ja_content
+
       t.timestamps null: false
     end
   end
