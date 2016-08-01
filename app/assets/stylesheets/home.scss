@@ -10,7 +10,7 @@ $subprimary-highlight: #9c6e45;
 
 @font-face {
   font-family: BodoniFLF;
-  src: url(BodoniFLF-Bold.ttf);
+  src: font-url('BodoniFLF-Bold.ttf');
 }
 
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
