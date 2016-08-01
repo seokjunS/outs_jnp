@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>Slide <%= @data.id + 1 %></h3>
+  <%= form_for( [:admin, @data] ) do |f| %>
+    <%= image_tag(@data.avatar.url, style: "margin-bottom:30px;height:300px") %>
+    <br>
+    <label>Select New File</label>
+    <%= f.file_field :avatar %>
+    <div style="height:50px;"></div>
+    <%= f.submit "Edit", class: "btn btn-primary" %>
+    <%= link_to "Back to list", admin_imgs_path, class: "btn btn-warning" %>
+  <% end %>
+
+</div>

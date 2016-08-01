@@ -14,19 +14,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-[{
-  cid: "welcome_text1",
-  ko: "PASSIONATE & CREATIVE",
-  en: "eePASSIONATE & CREATIVE",
-  cn: "ccPASSIONATE & CREATIVE",
-  ja: "jaPASSIONATE & CREATIVE"
-}, {
-  cid: "welcome_text2",
-  ko: "It is a long established fact that a reader will be distracted",
-  en: "eeIt is a long established fact that a reader will be distracted",
-  cn: "ccIt is a long established fact that a reader will be distracted",
-  ja: "jaIt is a long established fact that a reader will be distracted"
-}, {
+[
+#   {
+#   cid: "welcome_text1",
+#   ko: "PASSIONATE & CREATIVE",
+#   en: "eePASSIONATE & CREATIVE",
+#   cn: "ccPASSIONATE & CREATIVE",
+#   ja: "jaPASSIONATE & CREATIVE"
+# }, {
+#   cid: "welcome_text2",
+#   ko: "It is a long established fact that a reader will be distracted",
+#   en: "eeIt is a long established fact that a reader will be distracted",
+#   cn: "ccIt is a long established fact that a reader will be distracted",
+#   ja: "jaIt is a long established fact that a reader will be distracted"
+# }, 
+{
   cid: "aboutus_1_1",
   ko: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duispharetra mi odio, fringilla tempor ex egestas et.",
   en: "eeLorem ipsum dolor sit amet, consectetur adipiscing elit. Duispharetra mi odio, fringilla tempor ex egestas et.",
@@ -360,4 +362,8 @@ Notice.create([{
 }
 ])
 
-
+for i in 1..5
+  img = Img.new
+  img.avatar = File.new( "#{Rails.root}/app/assets/images/slide_#{i.to_s}.png" )
+  img.save
+end

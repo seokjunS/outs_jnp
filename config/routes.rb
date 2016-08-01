@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/admin' => redirect('/admin/texts')
   namespace :admin do
+    resources :imgs
     resources :texts
     resources :abouts
     resources :people

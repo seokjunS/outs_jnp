@@ -8,6 +8,36 @@ $screen-md-min: 992px;
 $primary-highlight: #895b35;
 $subprimary-highlight: #9c6e45;
 
+@font-face {
+  font-family: BodoniFLF;
+  src: url(BodoniFLF-Bold.ttf);
+}
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanssc.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosansarmenian.css);
+
+:lang(ko) body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+:lang(en) body {
+  font-family: 'Noto Sans Armenian', sans-serif;
+}
+
+:lang(ja) body {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+:lang(cn) body {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+.bodoni {
+  font-family: BodoniFLF !important;
+}
+
 
 html {
   overflow: auto;
@@ -62,6 +92,9 @@ hr.trans {
 }
 
 .divided-item {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+
   &:before,
   &.last:after {
     content: none;
@@ -86,6 +119,11 @@ hr.trans {
       right: 0px;
     }
   }
+}
+
+
+.navbar-default {
+  font-size: 18px;
 }
 
 .navbar-brand {
@@ -123,19 +161,29 @@ hr.trans {
   font-size: 84px;
   font-weight: bold;
   color: $primary-highlight;
+  font-weight: 700;
+  text-transform: initial;
 }
 
 .aboutus-text {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.2px;
   color: #8d8e8e;
 }
 
 .aboutus-text2 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
   color: #8d8e8e;
+}
+
+.aboutus-btn {
+  border-width: 2px;
+  padding: 9px 21px;
+  font-size: 30px;
+  font-family: BodoniFLF;
+  color: #1a1311;
 }
 
 .aboutus-more-heading {
@@ -150,9 +198,10 @@ hr.trans {
     letter-spacing: -2px;
     text-align: center;
     color: $primary-highlight;
+    font-family: BodoniFLF;
   }
   & .right {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     letter-spacing: -0.1px;
     color: #8d8e8e;
@@ -163,22 +212,27 @@ hr.trans {
   &>div {
     width: 20%;
   }
+  & .divided-item {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
   & .divided-item:before,
   & .divided-item.last:after {
     background-color: $subprimary-highlight;
   }
 
   & .aboutus-item {
-    min-height: 300px;
+    // min-height: 300px;
 
     .heading {
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       color: #060327;
       text-align: center;
+      font-family: BodoniFLF;
+      margin: 8px 0 16px;
     }
     .content {
-      // font-size: 10px;
       font-size: 14px;
       font-weight: 300;
       color: #9f9fa0;
@@ -187,15 +241,22 @@ hr.trans {
 }
 
 .aboutus-more2-heading {
-  padding: 63px 50px;
-  font-size: 18px;
+  padding: 0px 52px 70px;
+  font-size: 21px;
   font-weight: bold;
   color: #a3a3a3;
+  font-family: BodoniFLF;
 }
 
 #ref-aboutus-more2 {
   & .content-panel img {
     height: 420px;
+  }
+  & .content-panel .col-md-5 {
+    width: 38%;
+  }
+  & .content-panel .col-md-7 {
+    width: 62%;
   }
   & .item {
     width: 50%;
@@ -206,7 +267,7 @@ hr.trans {
       text-align: center;
       width: 50%;
       height: 100%;
-      padding-top: 40px;
+      padding-top: 45px;
       i {
         font-size: 45px;
         color: $subprimary-highlight;
@@ -217,11 +278,13 @@ hr.trans {
       bottom: 10px;
       left: 0;
       right: 0;
+      font-size: 18px;
+      font-family: BodoniFLF;
+      color: #060327;
     }
     .text {
       width: 50%;
       height: 100%;
-      // font-size: 10px;
       font-size: 14px;
       font-weight: 300;
       color: #9f9fa0;
@@ -240,22 +303,22 @@ hr.trans {
   }
   & .item.first:before {
     left: 100%;
-    top: 0;
-    bottom: 5%;
+    top: 7%;
+    bottom: 12%;
   }
   & .item.first:after {
-    left: 5%;
-    right: 5%;
+    left: 12%;
+    right: 8%;
     bottom: 0;
   }
   & .item.last:before {
     left: 0;
-    top: 5%;
-    bottom: 0;
+    top: 12%;
+    bottom: 7%;
   }
   & .item.last:after {
-    left: 5%;
-    right: 5%;
+    left: 8%;
+    right: 12%;
     top: 0;
   }
 }
@@ -263,6 +326,7 @@ hr.trans {
 .thumbnail {
   border: none;
   background-color: transparent;
+  text-decoration: none !important;
 
   & .caption {
     padding: 0 6px 0 9px;
@@ -300,30 +364,35 @@ hr.trans {
 }
 
 .thumbnail-caption {
-  padding: 0 6px 0 9px;
+  padding: 0 6px 0 14px;
   border-left: solid 2.7px $subprimary-highlight;
-  margin-left: 19px;
+  margin-left: 5px;
   margin-bottom: 10px;
+  font-family: BodoniFLF;
+  font-size: 20px;
+  font-weight: 700;
+  color: #141b39;
 
-  h3 {
-    margin: 10px 0 0;
-    font-weight: bold;
-    color: #060327;
-  }
-  p {
-    // font-size: 10px;
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: -0.2px;
-    color: #8d8e8e;
-  }
+  // h3 {
+  //   margin: 10px 0 0;
+  //   font-weight: bold;
+  //   color: #060327;
+  // }
+  // p {
+  //   font-size: 14px;
+  //   font-weight: 300;
+  //   letter-spacing: -0.2px;
+  //   color: #8d8e8e;
+  // }
 }
+
 
 .thumbnail-details {
   word-break: break-word;
   padding: 0 6px 0 9px;
-  border-left: solid 2.7px $subprimary-highlight;
-  margin-left: 19px;
+  // border-left: solid 2.7px $subprimary-highlight;
+  margin-left: 11px;
+  font-weight: 500;
   
   h3 {
     margin: 10px 0 0;
@@ -333,17 +402,18 @@ hr.trans {
 
   p {
     font-size: 14px;
-    line-height: 1.67;
+    line-height: 1.5;
     color: #141b39;
   }
 }
 
 .thumbnail-news {
   & .caption {
-    padding: 0 9px 0 15px;
+    position: relative;
+    padding: 0 25px 35px 25px;
     border: solid 2.7px $subprimary-highlight;
     border-top-color: transparent;
-    max-height: 300px;
+    height: 360px;
     overflow: hidden;
     cursor: pointer;
     -webkit-transition: all .3s;
@@ -351,22 +421,42 @@ hr.trans {
     transition: all .3s;
 
     h3 {
-      margin: 32px 0 19px;
-      font-size: 18px;
+      margin: 32px 0 14px;
+      font-size: 20px;
+      font-family: BodoniFLF;
       font-weight: bold;
+      text-align: left;
       color: #060327;
     }
     p {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: normal;
-      line-height: 1.6;
+      line-height: 1.5;
       color: #9f9fa0;
     }
+    .clip {
+      position: absolute;
+      height: 32px;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      background-color: #f7f7f7;
+      margin: 0;
+    }
+  }
+  img {
+    margin-left: 0 !important;
   }
 
   &.expanded .caption {
     max-height: initial;
+    border-top-color: $subprimary-highlight;
+    height: initial;
   }
+  &.expanded .clip {
+    display: none;
+  }
+  
 }
 
 .has-transition {
@@ -378,24 +468,28 @@ hr.trans {
 .recruit {
   font-size: 30px;
   font-weight: bold;
+  font-family: BodoniFLF;
   color: #895b35;
 }
 
 .recruit-text {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   letter-spacing: -0.2px;
   color: #8d8e8e;
+  line-height: 1.6;
 }
 
 .location-label {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
+  font-family: BodoniFLF;
   color: #060327;
+  text-align: right;
 }
 
 .location-text {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
   color: #8d8e8e;
 }
@@ -422,13 +516,13 @@ footer {
   position: relative;
 }
 
-.navbar-brand:after {
-  content: "제이앤파트너스 법률사무소";
-  position: absolute;
-  bottom: -7px;
-  left: 35px;
-  font-size: 10px;
-}
+// .navbar-brand:after {
+//   content: "제이앤파트너스 법률사무소";
+//   position: absolute;
+//   bottom: -7px;
+//   left: 35px;
+//   font-size: 10px;
+// }
 
 .navbar-shrink .navbar-brand:after {
   bottom: 0px;
@@ -451,12 +545,32 @@ footer {
 }
 
 .portfolio-item {
+  margin-top: 10px;
   margin-bottom: 20px;
   cursor: pointer;
+  width: 20%;
+  min-height: 250px;
 }
 
 .portfolio-hover-content {
-  font-size: 18px !important;
+  font-size: 20px !important;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #141b39 !important;
+}
+
+.portfolio-link .expanded-name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #9c6e45;
+  padding-top: 18px;
+  display: none;
+}
+
+.portfolio-link.expanded .expanded-name {
+  display: block;
 }
 
 .portfolio-link.expanded {

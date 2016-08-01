@@ -20,13 +20,7 @@ class Admin::PeopleController < AdminController
     else
       redirect_to edit_admin_person_path(@data)
     end
-    
-    
-    # if @data.update(person_params)
-    #   redirect_to edit_admin_person_path(@data)
-    # else
-    #   redirect_to edit_admin_person_path(@data)
-    # end
+
     
   end
 
@@ -37,10 +31,15 @@ class Admin::PeopleController < AdminController
   def create
     @data = Person.new(person_params)
 
-    if @data.save
+    if @data.priority != person_params[:priority]
+      # get all same ko_positoin
+      Person.where(:ko_position => @data.ko_position).update_all(:priority => person_params[:priority])
+      @data.update(person_params)
+      redirect_to edit_admin_person_path(@data)
+    elsif @data.update(person_params)
       redirect_to edit_admin_person_path(@data)
     else
-      render new_admin_person_path(@data)
+      redirect_to edit_admin_person_path(@data)
     end
   end
 

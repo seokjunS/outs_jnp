@@ -11,8 +11,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand page-scroll" href="#page-top">
-          <%= image_tag("logo.png", style: "width:30px;height:30px;display:inline-block") %>
-          J & Partners
+          <%= image_tag("logo.png", style: "width:152px;height:50px;display:inline-block;margin-top:-10px") %>
         </a>
       </div>
 
@@ -32,9 +31,9 @@
             <a class="page-scroll divided-item" href="#ref-news">News</a>
           </li>
           <li>
-            <a class="page-scroll divided-item" href="#ref-location">Location</a>
+            <a class="page-scroll divided-item last" href="#ref-location">Location</a>
           </li>
-          <li>
+          <li style="padding-left:15px">
             <a class="flag-wrapper" href="/"><%= image_tag("flag_kr.png", class: "img-flag") %></a>
           </li>
           <li>
@@ -54,15 +53,6 @@
   </nav>
 </div>
 
-<!-- Header -->
-<!-- <header>
-  <div class="container">
-    <div class="intro-text">
-      <div class="intro-heading"><%= get_text(@texts, "welcome_text1", @locale) %></div>
-      <div class="intro-lead-in"><%= get_text(@texts, "welcome_text2", @locale) %></div>
-    </div>
-  </div>
-</header> -->
 
 <header id="head-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
   <!-- Indicators -->
@@ -76,19 +66,13 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <% for i in 1..5 %>
+    <% @imgs.each_with_index do |item, i| %>
     <div class="item <%= 'active' if i == 1 %>">
-      <%= image_tag("slide_"+i.to_s+".jpg", style: "width:100%;max-height:95vh") %>
+      <%= image_tag(item.avatar.url, style: "width:100%;max-height:95vh") %>
     </div>
     <% end %>
   </div>
 
-  <div class="container carousel-text">
-    <div class="intro-text">
-      <div class="intro-heading"><%= get_text(@texts, "welcome_text1", @locale) %></div>
-      <div class="intro-lead-in"><%= get_text(@texts, "welcome_text2", @locale) %></div>
-    </div>
-  </div>
 </header>
 
 
@@ -101,11 +85,11 @@
 <section id="ref-aboutus">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-5">
         <%= image_tag("3.jpg", class: "img-responsive", style: "width:100%") %>
       </div>
       <div class="col-xs-6 col-xs-offset-1 text-center">
-        <h1 class="aboutus-heading">About Us</h1>
+        <h1 class="aboutus-heading bodoni">About Us</h1>
         <hr class="trans">
         <p class="aboutus-text">
           <%= get_text(@texts, "aboutus_1_1", @locale) %>
@@ -115,7 +99,7 @@
           <%= get_text(@texts, "aboutus_1_2", @locale) %>
         </p>
         <hr class="trans">
-        <a href="#ref-aboutus-more" class="page-scroll btn btn-trans">Read more</a>
+        <a href="#ref-aboutus-more" class="page-scroll btn btn-trans aboutus-btn">Read More</a>
       </div>
     </div>
   </div>
@@ -185,66 +169,40 @@
 <section id="ref-people">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4 portfolio-item">
-        <div class="thumbnail-caption" style="margin-left:5px">
-          <h3><%= @people[0][0].get_position(@locale) %></h3>
+      <% @people.each do |item| %>
+        <% if item[:type] == "dm" %>
+        <% #### dummy %>
+        <div class="col-xs-2 portfolio-item dummy" style="height:250px">
         </div>
-        <a class="thumbnail big portfolio-link" role="button" data-toggle="collapse" href="#p_0_0" aria-expanded="false" data-opened="false">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <%= @people[0][0].get_name(@locale) %>
-            </div>
+        <% elsif item[:type] == "ov" %>
+        <% #### overview %>
+        <div class="col-xs-2 portfolio-item">
+          <% if !item[:pos].nil? %>
+          <div class="thumbnail-caption">
+            <span style="white-space:nowrap"><%= item[:pos] %></span>
           </div>
-          <%= image_tag(@people[0][0].avatar.url, class: "avatar img-responsive", style: "width:100%") %>
-        </a>
-        <div class="thumbnail-details collapse" id="p_0_0" style="margin-left:5px">
-          <h3><%= @people[0][0].get_name(@locale) %></h3>
-          <p><%= @people[0][0].get_description(@locale) %></p>
-        </div>
-      </div>
-      <div class="col-xs-7 col-xs-offset-1">
-        
-        <% @people.each_with_index do |items, index| %>
-          <% if index > 0 %>
-          <div class="row">
-            <% items.each_with_index do |item, sub_index| %>
-              <% if sub_index == 0 %>
-              <div class="thumbnail-caption">
-                <h3><%= item.get_position(@locale) %></h3>
-              </div>
-              <% end %>
-              <div class="col-xs-4 portfolio-item">
-                <a class="thumbnail portfolio-link" role="button" data-toggle="collapse" href="#p_<%=index%>_<%=sub_index%>" aria-expanded="false" data-opened="false">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <%= item.get_name(@locale) %>
-                    </div>
-                  </div>
-                  <%= image_tag(item.avatar.url, class: "avatar img-responsive", style: "width:100%") %>
-                </a>
-              </div>
-              <% if sub_index % 3 == 2 %>
-                <% for i in -2..0 %>
-                <div class="col-xs-12 thumbnail-details collapse" id="p_<%=index%>_<%=sub_index+i%>">
-                  <h3><%= items[sub_index+i].get_name(@locale) %></h3>
-                  <p><%= items[sub_index+i].get_description(@locale) %></p>
-                </div>
-                <% end %>
-              <% end %>
-            <% end %>
-            <% if items.size()-1 % 3 != 2 %>
-              <% for i in (-1 * (items.size()-1))..0 %>
-              <div class="col-xs-12 thumbnail-details collapse" id="p_<%=index%>_<%=items.size()-1+i%>">
-                  <h3><%= items[items.size()-1+i].get_name(@locale) %></h3>
-                  <p><%= items[items.size()-1+i].get_description(@locale) %></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
+          <% else %>
+          <div style="height:38px"></div>
           <% end %>
+          <a class="thumbnail portfolio-link" role="button" data-toggle="collapse" href="#<%=item[:id]%>" aria-expanded="false" data-opened="false">
+            <div class="portfolio-hover">
+              <div class="portfolio-hover-content">
+                <%= item[:name] %>
+              </div>
+            </div>
+            <%= image_tag(item[:url], class: "avatar img-responsive", style: "width:100%") %>
+            <div class="expanded-name">
+              <%= item[:name] %>
+            </div>
+          </a>
+        </div>
+        <% else # dc %>
+        <% #### description %>
+        <div class="col-xs-12 thumbnail-details collapse" id="<%=item[:id]%>">
+          <%= item[:desc] %>
+        </div>
         <% end %>
-
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
@@ -267,16 +225,13 @@
       <% @notices.each_with_index do |item, index| %>
       <div class="has-transition col-xs-3">
         <div class="thumbnail thumbnail-news" data-id="<%=index%>">
-          <%= image_tag(item.avatar.url, class: "img-responsive", style: "width:100%;max-height:300px") %>
+          <%= image_tag(item[:url], class: "news-img", style: "max-height:175px") %>
           <div class="caption">
-            <h3><%= item.get_title(@locale) %></h3>
-            <p>
-              <%= item.get_content(@locale) %>
-              <%= item.get_content(@locale) %>
-              <%= item.get_content(@locale) %>
-              <%= item.get_content(@locale) %>
-              <%= item.get_content(@locale) %>
-              <%= item.get_content(@locale) %>
+            <h3><%= item[:title] %></h3>
+            <p class="short">
+              <%= item[:full] %>
+            </p>
+            <p class="clip">
             </p>
           </div>
         </div>
@@ -288,7 +243,7 @@
 </section>
 
 <!-- Location Section -->
-<section id="ref-location">
+<section id="ref-location" style="padding-bottom:0">
   <div class="container">
     <div class="row">
       <div class="col-xs-6">
