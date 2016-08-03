@@ -53,9 +53,8 @@
   </nav>
 </div>
 
-
+<!-- 
 <header id="head-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-  <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#head-carousel" data-slide-to="0" class="active"></li>
     <li data-target="#head-carousel" data-slide-to="1"></li>
@@ -64,7 +63,6 @@
     <li data-target="#head-carousel" data-slide-to="4"></li>
   </ol>
 
-  <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <% @imgs.each_with_index do |item, i| %>
     <div class="item <%= 'active' if i == 1 %>">
@@ -72,14 +70,15 @@
     </div>
     <% end %>
   </div>
+</header> -->
+
+<header id="head-cycler">
+  <% @imgs.each_with_index do |item, i| %>
+    <%= image_tag(item.avatar.url, class: "#{'active' if i == 0}", style: "width:100%;max-height:95vh") %>
+  <% end %>
 
 </header>
 
-
-
-<!-- <div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/172288767" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-</div> -->
 
 <!-- About Us Section -->
 <section id="ref-aboutus">
@@ -221,11 +220,28 @@
         </span>
       </div>
     </div>
-    <div class="row" style="margin-top:50px;">
+    <div class="row" style="margin-top:50px;" id="news-expanded-panel">
       <% @notices.each_with_index do |item, index| %>
-      <div class="has-transition col-xs-3">
-        <div class="thumbnail thumbnail-news" data-id="<%=index%>">
+      <div class="has-transition op col-xs-12 hidden" id="expanded-news-<%=index%>">
+        <div class="thumbnail thumbnail-news expanded" data-id="<%=index%>">
           <%= image_tag(item[:url], class: "news-img", style: "max-height:175px") %>
+          <div class="caption">
+            <h3><%= item[:title] %></h3>
+            <p class="short">
+              <%= item[:full] %>
+            </p>
+            <p class="clip">
+            </p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="row" style="margin-top:0px;" id="news-panel">
+      <% @notices.each_with_index do |item, index| %>
+      <div class="has-transition op col-xs-3" id="news-<%=index%>">
+        <div class="thumbnail thumbnail-news" data-id="<%=index%>">
+          <%= image_tag(item[:url], class: "news-img fit", style: "max-height:175px") %>
           <div class="caption">
             <h3><%= item[:title] %></h3>
             <p class="short">

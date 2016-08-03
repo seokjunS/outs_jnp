@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 
   def index
     @locale = I18n.locale.to_s
-    @imgs = Img.all.order(:id)
+    @imgs = Img.all.order(id: :desc)
     @texts = Hash[ Text.all.map { |c| [c.cid, c] } ]
     @abouts1 = About.order(:id).limit(5)
     @abouts2 = About.order(:id).limit(5).offset(5)
