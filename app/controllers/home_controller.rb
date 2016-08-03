@@ -12,18 +12,18 @@ class HomeController < ApplicationController
 
   def index
     @locale = I18n.locale.to_s
-    @imgs = Img.all
+    @imgs = Img.all.order(:id)
     @texts = Hash[ Text.all.map { |c| [c.cid, c] } ]
-    @abouts1 = About.limit(5)
-    @abouts2 = About.limit(5).offset(5)
+    @abouts1 = About.order(:id).limit(5)
+    @abouts2 = About.order(:id).limit(5).offset(5)
     @notices = []
-    people_all = Person.all.group_by{ |p| p.priority }.sort.map{ |v| v[1] }
+    people_all = Person.order(:created_at).all.group_by{ |p| p.priority }.sort.map{ |v| v[1] }
     @people = []
 
 
     ###### for notice
 
-    Notice.all.each do |item|
+    Notice.order(:created_at).all.each do |item|
       n = {
         :url => item.avatar.url,
         :title => item.get_title(@locale),

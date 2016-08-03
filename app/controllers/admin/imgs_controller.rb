@@ -1,6 +1,6 @@
 class Admin::ImgsController < AdminController
   def index
-    @data = Img.all
+    @data = Img.all.order(:id)
   end
 
   def edit
