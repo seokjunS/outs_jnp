@@ -1,6 +1,6 @@
 class Admin::TextsController < AdminController
   def index
-    @data = Text.all
+    @data = Text.all.order(:id)
   end
 
   def edit

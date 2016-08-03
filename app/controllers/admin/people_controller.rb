@@ -1,6 +1,6 @@
 class Admin::PeopleController < AdminController
   def index
-    @data = Person.all
+    @data = Person.all.order(:created_at)
   end
 
   def edit

@@ -1,6 +1,6 @@
 class Admin::AboutsController < AdminController
   def index
-    @data = About.all
+    @data = About.all.order(:id)
   end
 
   def edit

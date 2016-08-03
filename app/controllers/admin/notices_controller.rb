@@ -1,6 +1,6 @@
 class Admin::NoticesController < AdminController
   def index
-    @data = Notice.all
+    @data = Notice.all.order(:created_at)
   end
 
   def edit
