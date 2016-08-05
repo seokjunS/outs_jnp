@@ -47,6 +47,12 @@ html {
 
 .container {
   width: 970px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbar-right {
+  margin-right: 0;
 }
 
 .carousel-text {
