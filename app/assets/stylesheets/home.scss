@@ -41,6 +41,12 @@ $subprimary-highlight: #9c6e45;
 
 html {
   overflow: auto;
+  min-width: 998px !important;
+}
+
+
+.container {
+  width: 970px !important;
 }
 
 .carousel-text {
