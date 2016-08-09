@@ -40,8 +40,13 @@ $subprimary-highlight: #9c6e45;
 
 
 html {
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   min-width: 998px !important;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 
@@ -202,7 +207,7 @@ hr.trans {
   background-color: #050633;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 
   & .left {
     font-size: 30px;
@@ -253,7 +258,7 @@ hr.trans {
 }
 
 .aboutus-more2-heading {
-  padding: 0px 52px 70px;
+  padding: 0px 52px 50px;
   font-size: 21px;
   font-weight: bold;
   color: #a3a3a3;
@@ -283,6 +288,10 @@ hr.trans {
       i {
         font-size: 45px;
         color: $subprimary-highlight;
+      }
+      img {
+        width: 45px;
+        height: 50px;
       }
     }
     .lb {
@@ -404,7 +413,9 @@ hr.trans {
   padding: 0 6px 0 9px;
   // border-left: solid 2.7px $subprimary-highlight;
   margin-left: 11px;
+  margin-bottom: 20px;
   font-weight: 500;
+  line-height: 24px;
   
   h3 {
     margin: 10px 0 0;
@@ -558,7 +569,7 @@ footer {
 
 .portfolio-item {
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   cursor: pointer;
   width: 20%;
   min-height: 250px;
@@ -594,8 +605,8 @@ footer {
   padding-right: 5px !important;
 }
 .img-flag {
-  width: 1.5em;
-  height: 1em;
+  width: 1.2em;
+  height: 0.8em;
 }
 
 .img-cycle {
@@ -613,9 +624,9 @@ footer {
   }
 }
 
-$a: 2;
+$a: 5;
 $n: 5;
-$b: 1;
+$b: 2;
 $t: ($a + $b) * $n;
 $k1: $a/$t*100%;
 $k2: 1/$n*100%;
@@ -702,4 +713,19 @@ $k3: 100% - $b/$t*100%;
 .op.hiddenv {
   opacity: 0;
   visibility: hidden;
+}
+
+.navbar-default {
+  font-size: 14px;
+}
+
+.navbar {
+  & .first,
+  &.navbar-shrink .second {
+    display: inline-block;
+  }
+  &.navbar-shrink .first,
+  & .second {
+    display: none;
+  }
 }
