@@ -152,7 +152,7 @@
         <div class="col-xs-6 item <%= index == 0 ? 'first' : (index == 3 ? 'last' : '') %>">
           <div class="col-xs-6 icon">
             <!-- <i class="fa fa-paper-plane-o" aria-hidden="true"></i> -->
-            <%= image_tag("abicon"+(index+1).to_s, class: "", style: "") %>
+            <%= image_tag("abicon#{index+1}", class: "", style: "") %>
             <div class="lb"><%= item.get_title(@locale) %></div>
           </div>
           <div class="col-xs-6 text">
