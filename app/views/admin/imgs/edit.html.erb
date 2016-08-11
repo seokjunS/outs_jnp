@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Slide <%= @data.id + 1 %></h3>
+  <h3>Slide <%= @data.id %></h3>
   <%= form_for( [:admin, @data] ) do |f| %>
     <%= image_tag(@data.avatar.url, style: "margin-bottom:30px;height:300px") %>
     <br>
