@@ -362,7 +362,7 @@ Notice.create([{
 }
 ])
 
-for i in 1..5
+for i in 1..7
   img = Img.new
   img.avatar = File.new( "#{Rails.root}/app/assets/images/slide_#{i.to_s}.png" )
   img.save
