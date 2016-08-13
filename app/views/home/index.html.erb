@@ -87,7 +87,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-5">
-        <%= image_tag("3.jpg", class: "img-responsive", style: "width:100%") %>
+        <%= image_tag(@aboutus_imgs[0].avatar.url, class: "img-responsive", style: "width:100%") %>
       </div>
       <div class="col-xs-6 col-xs-offset-1 text-center" style="margin-left:5%">
         <h1 class="aboutus-heading bodoni">About Us</h1>
@@ -145,7 +145,7 @@
 
     <div class="row content-panel">
       <div class="col-xs-5">
-        <%= image_tag("1.jpg", class: "", style: "width:100%") %>
+        <%= image_tag(@aboutus_imgs[1].avatar.url, class: "", style: "width:100%") %>
       </div>
       <div class="col-xs-7" style="position:relative;padding:0">
         <% @abouts2.each_with_index do |item, index| %>
