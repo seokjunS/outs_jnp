@@ -11,6 +11,6 @@ class Person < ActiveRecord::Base
   end
 
   def get_description(locale)
-    self[locale+"_description"]
+    self[locale+"_description"].gsub("\n", "<br>").html_safe
   end
 end

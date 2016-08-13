@@ -7,6 +7,6 @@ class Notice < ActiveRecord::Base
   end
 
   def get_content(locale)
-    self[locale+"_content"]
+    self[locale+"_content"].gsub("\n", "<br>").html_safe
   end
 end
