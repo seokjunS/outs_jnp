@@ -47,8 +47,37 @@ html {
 
 body {
   overflow-x: hidden;
+  background-color: rgb(120, 120, 120);
 }
 
+.body-wrap {
+  background-color: #ffffff;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@media (min-width: 1280px) {
+  .body-wrap {
+    width: 1280px;
+  }
+}
+
+#page-top {
+  width: inherit;
+}
 
 .container {
   width: 970px !important;
@@ -208,6 +237,8 @@ hr.trans {
   padding-top: 50px;
   padding-bottom: 50px;
   margin-bottom: 60px;
+  margin-left: 0;
+  margin-right: 0;
 
   & .left {
     font-size: 30px;
