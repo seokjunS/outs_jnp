@@ -1,28 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.1.1
 
-Things you may want to cover:
+* System dependencies: linux or osx
 
-* Ruby version
+* Bundle configuration: bundle install
 
-* System dependencies
+* Database creation: rake db:migrate
 
-* Configuration
+* Database initialization: rake db:setup
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Deployment instructions: rails s
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+After deploying, you can acess the site with http://localhost:3000
+
+
+== Sitemap
+
+* / : main site
+
+* /admin : admin page
+** name: 'aaa', password: 'aaa'
